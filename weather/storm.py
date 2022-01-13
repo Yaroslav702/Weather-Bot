@@ -17,4 +17,7 @@ def storm_attention(update, context):
     
     text = parse(user_city, get_content)
     chat = update.effective_chat
-    context.bot.send_message(chat_id=chat.id, text = text)
+    if user_city == 'Введіть команду правильно: /команда назва міста':
+        context.bot.send_message(chat_id=chat.id, text = user_city)
+    else:
+        context.bot.send_message(chat_id=chat.id, text = text)
